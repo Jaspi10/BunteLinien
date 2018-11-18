@@ -94,7 +94,7 @@ public class BLSurfaceView extends SurfaceView implements Runnable {
             }
 
             try {
-                Thread.sleep(16);
+                Thread.sleep(4);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
