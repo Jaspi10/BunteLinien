@@ -5,6 +5,8 @@ import android.graphics.Paint;
 
 public class Particle {
 
+    public static final double SPEED_MULTIPLIER = 6.0;
+
     private Vec2 position;
     private Vec2 velocity;
 
@@ -53,7 +55,7 @@ public class Particle {
     }
 
     public void setSpeed(double speed) {
-        velocity = velocity.rescale(speed);
+        velocity = velocity.rescale(speed*SPEED_MULTIPLIER);
     }
 
     public void setConstraints(int width, int height) {

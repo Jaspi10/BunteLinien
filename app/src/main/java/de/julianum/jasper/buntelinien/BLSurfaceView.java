@@ -52,6 +52,9 @@ public class BLSurfaceView extends SurfaceView implements Runnable {
         p1 = new Particle(new Vec2(200, 500), new Vec2(5, -7), width, height);
         p2 = new Particle(new Vec2(600, 1200), new Vec2(-8, 3), width, height);
 
+        p1.setSpeed(1.0);
+        p2.setSpeed(1.0);
+
         lines = new ArrayList<>();
 
         Paint p = new Paint();
