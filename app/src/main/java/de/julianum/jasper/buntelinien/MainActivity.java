@@ -18,10 +18,11 @@ public class MainActivity extends Activity {
 
         this.surfaceView = findViewById(R.id.BLSurfaceView2);
 
+        addListeners();
+
         ((SeekBar) findViewById(R.id.seekBar)).setProgress(10);
         ((SeekBar) findViewById(R.id.seekBar2)).setProgress(10);
-
-        addListeners();
+        ((SeekBar) findViewById(R.id.seekBar3)).setProgress(30);
     }
 
     private void addListeners() {
@@ -54,6 +55,23 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 surfaceView.setSpeed2((progress+1)/10.0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        ((SeekBar) findViewById(R.id.seekBar3)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                surfaceView.setLength(progress);
             }
 
             @Override

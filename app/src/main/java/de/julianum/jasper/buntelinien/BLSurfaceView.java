@@ -29,6 +29,7 @@ public class BLSurfaceView extends SurfaceView implements Runnable {
 
     private boolean mirrorX;
     private boolean mirrorY;
+    int length;
 
     public BLSurfaceView(Context context) {
         this(context, null);
@@ -77,7 +78,7 @@ public class BLSurfaceView extends SurfaceView implements Runnable {
                     //Log.d("BLSurfaceView", "w: " + width + ", h: " + height);
 
                     hsv[0] = (hsv[0] + 3.0f) % 360.0f;
-                    lines.add(new Line(p1.getPosition(), p2.getPosition(), Color.HSVToColor(hsv), 30));
+                    lines.add(new Line(p1.getPosition(), p2.getPosition(), Color.HSVToColor(hsv), length));
 
                     for (Line line : lines) {
                         line.draw(canvas, p, mirrorX, mirrorY);
@@ -126,5 +127,9 @@ public class BLSurfaceView extends SurfaceView implements Runnable {
 
     public synchronized void setSpeed2(double speed) {
         p2.setSpeed(speed);
+    }
+
+    public synchronized void setLength(int length) {
+        this.length = length;
     }
 }
